@@ -92,6 +92,8 @@
 			dependencies = (
 			);
 			name = "Mcdonalds Demo";
+			packageProductDependencies = (
+			);
 			productName = "Mcdonalds Demo";
 			productReference = 80DCF44F292A85AF00A6C8AC /* Mcdonalds Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +122,8 @@
 				Base,
 			);
 			mainGroup = 80DCF446292A85AF00A6C8AC;
+			packageReferences = (
+			);
 			productRefGroup = 80DCF450292A85AF00A6C8AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

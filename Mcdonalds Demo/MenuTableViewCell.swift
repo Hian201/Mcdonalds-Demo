@@ -15,13 +15,20 @@ class MenuTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mealImage: UIImageView!
     
+    let menuTableViewController = MenuTableViewController()
     
     func cellUpdate(_ model: MenuItem) {
         nameLabel.text = model.name
         comboLabel.text = model.combo
         //KcalLabel.text = String(format: "%2d Kcal", model.kcal)
         KcalLabel.text = model.kcal! + " Kcal"
-        mealImage.image = UIImage(named: )
+        menuTableViewController.fetchImage(from: model.image![0].url) { image in
+            if let image {
+                DispatchQueue.main.async {
+                    self.mealImage.image = image
+                }
+            }
+        }
     }
 
     override func awakeFromNib() {

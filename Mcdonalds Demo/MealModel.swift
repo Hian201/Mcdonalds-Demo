@@ -28,7 +28,7 @@ struct MenuItem: Codable {
 }
 
 struct Image: Codable {
-    let url: String
+    let url: URL
 }
 
 

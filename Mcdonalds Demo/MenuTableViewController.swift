@@ -36,7 +36,7 @@ class MenuTableViewController: UITableViewController {
         if let url = URL(string: "https://api.airtable.com/v0/appKmSynalVzk6Mhm/meal") {
             var request = URLRequest(url: url)
             request.httpMethod = "get"
-            request.setValue("Bearer keyd3CHUC8CpdETAR", forHTTPHeaderField: "Authorization")
+            request.setValue("Bearer ", forHTTPHeaderField: "Authorization")
             URLSession.shared.dataTask(with: request) { data, response, error in
                 if let data {
                     do {
@@ -76,6 +76,19 @@ class MenuTableViewController: UITableViewController {
                 }
             }.resume()
         }
+    }
+    
+    func fetchImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let _ = error {
+                completion(nil)
+            } else if let data = data,
+                      let image = UIImage(data: data) {
+                completion(image)
+            } else {
+                completion(nil)
+            }
+        }.resume()
     }
 
     
